@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Rash Dashboard</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+    <div class="stat-box">
+
+<h2>🔥 120</h2>
+
+<p>Daily Conversions</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>🌍 15</h2>
+
+<p>Countries Active</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>💰 $2,450</h2>
+
+<p>Revenue Potential</p>
+
+</div>
+
+<h1>👑 Rash Admin Dashboard</h1>
+<div class="profile-card">
+
+<h2>
+👤 {{ current_user.username }}
+</h2>
+
+<p>
+Premium Fintech User
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-box">
+
+<h2>{{ total_users }}</h2>
+
+<p>Total Users</p>
+
+</div>
+
+</div>
+
+<div class="history">
+
+<h3>Registered Users</h3>
+
+<ul>
+
+{% for user in users %}
+
+<li>
+{{ user.username }}
+</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<a href="/logout">
+
+<button class="convert-btn">
+    <a href="/premium">
+
+<button class="download-btn">
+💳 Upgrade To Premium
+</button>
+
+</a>
+Logout
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
