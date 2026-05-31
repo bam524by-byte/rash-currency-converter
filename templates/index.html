@@ -1,310 +1,865 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="manifest"
-href="{{ url_for('static', filename='manifest.json') }}">
 
-<meta charset="UTF-8">
+<head>
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rash Currency Converter</title>
+    <title>Rash Currency Converter</title>
 
-<link rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}">
+    <link rel="manifest"
+          href="{{ url_for('static', filename='manifest.json') }}">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body>
+
+    <!-- SPLASH -->
     <div id="splash">
+        <h1>💱 Rash Currency Converter</h1>
+    </div>
 
-<h1>
-💱 Rash Currency Converter
-</h1>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="sidebar-logo">
+            💱 Rash FX
+        </div>
+
+        <a class="active" href="/">🏠 Home</a>
+        <a href="/dashboard">📊 Dashboard</a>
+        <a href="/history">📜 History</a>
+        <a href="#contact">📧 Contact</a>
+        <a href="/premium">💎 Premium</a>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+<button onclick="toggleTheme()">
+    🌙 Toggle Theme
+</button>
+        <!-- DASHBOARD HEADER -->
+        <div class="dashboard-header">
+
+            <div>
+                <h2>Welcome to Rash Currency Converter</h2>
+                <p>Live Forex • Crypto • Premium Tools</p>
+            </div>
+
+            <div class="header-right">
+
+                <div class="status-box">
+                    🟢 API Online
+                </div>
+
+                <div class="status-box">
+                    👤 User
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- QUICK STATS -->
+        <div class="quick-stats">
+
+            <div class="stat-card">
+                <h3>Total Users</h3>
+                <p>{{ total_users }}</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Conversions</h3>
+                <p>{{ total_conversions }}</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>API Status</h3>
+                <p>Online</p>
+            </div>
+
+        </div>
+        <!-- USER PROFILE CARD -->
+
+<div class="profile-card">
+
+    <div class="profile-avatar">
+        👤
+    </div>
+
+    <h3>Rashid</h3>
+
+    <p>Premium Member</p>
+
+    <div class="profile-info">
+
+        <div>
+            <strong>25</strong>
+            <span>Conversions</span>
+        </div>
+
+        <div>
+            <strong>5</strong>
+            <span>Favorites</span>
+        </div>
+
+        <div>
+            <strong>UGX</strong>
+            <span>Default</span>
+        </div>
+
+    </div>
+<!-- WALLET CARD -->
+
+<div class="wallet-card">
+
+    <h3>💰 Account Balance</h3>
+
+    <h1>UGX 1,250,000</h1>
+
+    <div class="wallet-stats">
+
+        <div>
+            <span>📈 Profit Today</span>
+            <h4>+UGX 25,000</h4>
+        </div>
+
+        <div>
+            <span>💱 Conversions</span>
+            <h4>125</h4>
+        </div>
+
+    </div>
+<!-- PREMIUM -->
+
+<div class="premium-card">
+
+    <h3>💎 Premium Membership</h3>
+
+    <p>
+        Unlock advanced analytics,
+        unlimited history,
+        AI predictions,
+        and VIP support.
+    </p>
+
+    <button class="premium-btn">
+        Upgrade Now
+    </button>
 
 </div>
-    <div class="navbar">
+</div>
+</div>
+<!-- LIVE FOREX TICKER -->
+
+<div class="ticker-container">
+
+    <div class="ticker">
+
+        <span>💵 USD/UGX 3766.30 ▲</span>
+
+        <span>💶 EUR/USD 1.16 ▲</span>
+
+        <span>💷 GBP/USD 1.27 ▼</span>
+
+        <span>💴 USD/JPY 157.20 ▼</span>
+
+        <span>🪙 BTC/USD 67582 ▲</span>
+
+        <span>⚡ ETH/USD 3146 ▲</span>
+
+        <span>🇰🇪 KES/USD 0.0078 ▲</span>
+
+        <span>🇹🇿 TZS/USD 0.00039 ▼</span>
+
+    </div>
+
+</div>
+        <!-- TITLE -->
+        <h1 class="title">
+            💱 Rash Currency Converter
+        </h1>
+
+        <p class="subtitle">
+            Premium Forex & Crypto Converter
+        </p>
+
+        <!-- LANGUAGE -->
         <div class="language-box">
+            <select>
+                <option>English</option>
+                <option>French</option>
+                <option>Arabic</option>
+                <option>Swahili</option>
+            </select>
+        </div>
 
-<select>
+        <!-- AUTH BOX -->
+        <!-- Register + Login Forms -->
 
-<option>English</option>
+        <!-- SEARCH BOX -->
 
-<option>French</option>
+        <!-- AMOUNT INPUT -->
 
-<option>Arabic</option>
+        <!-- CURRENCY SELECTORS -->
 
-<option>Swahili</option>
+        <!-- FAVORITE PAIRS -->
 
-</select>
+        <!-- CONVERT BUTTON -->
 
-</div>
+        <!-- RESULT BOX -->
 
-<div class="logo">
-💱 Rash Converter
-</div>
+        <!-- TRADINGVIEW CHART -->
 
-<div class="nav-links">
+        <!-- CRYPTO SECTION -->
 
-<a href="/">Home</a>
+        <!-- MARKET TRENDS -->
 
-<a href="/dashboard">
-Dashboard
-</a>
+        <!-- FOREX NEWS -->
 
-<a href="#contact">
+        <!-- HISTORY SECTION -->
+
+        <!-- CONTACT FORM -->
+
+    </div>
+
+    <!-- AI ASSISTANT -->
     <div class="ai-box">
 
-<h3>🤖 Rash AI Assistant</h3>
+        <h3>🤖 Rash AI Assistant</h3>
 
-<p>
-AI financial assistant coming soon...
-</p>
+        <p>
+            AI Financial Assistant Coming Soon
+        </p>
 
-<button class="convert-btn">
-Ask AI
-</button>
+        <button class="convert-btn">
+            Ask AI
+        </button>
 
-</div>
-Contact
-</a>
+    </div>
 
-</div>
+    <!-- SCROLL BUTTON -->
+    <button class="scroll-btn"
+            onclick="scrollToBottom()">
+        ↓
+    </button>
 
-</div>
+    <!-- TOAST -->
+    <div id="toast">
+        Conversion Successful
+    </div>
 
-<div class="particles"></div>
+    <!-- AUDIO -->
+    <audio id="sound"
+           src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3">
+    </audio>
 
-<div class="theme-toggle">
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
-<button onclick="toggleTheme()">
-🌙
-</button>
+</body>
+</html>
 
-</div>
+<!-- MAIN CONTAINER -->
 
 <div class="container">
 
-<div class="card">
+    <!-- TITLE -->
 
-<div class="top-bar">
+    <h1 class="title">
+        💱 Rash Currency Converter
+    </h1>
 
-<h1>💱 Rash Currency Converter</h1>
+    <p class="subtitle">
+        Premium Forex & Crypto Converter
+    </p>
 
-<div id="clock"></div>
+    <!-- LANGUAGE -->
 
-</div>
+    <div class="language-box">
 
-<p class="subtitle">
+        <select>
+
+            <option>English</option>
+            <option>French</option>
+            <option>Arabic</option>
+            <option>Swahili</option>
+
+        </select>
+
+    </div>
+
+    <!-- AUTH -->
+
     <div class="auth-box">
 
-<form action="/register" method="POST">
+        <!-- REGISTER -->
 
-<input
-type="text"
-name="username"
-placeholder="Username"
-required>
+        <form action="/register" method="POST">
 
-<input
-type="password"
-name="password"
-placeholder="Password"
-required>
+            <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required>
 
-<button type="submit">
-Register
+            <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required>
+
+            <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required>
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <!-- LOGIN -->
+
+        <form action="/login" method="POST">
+
+            <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required>
+
+            <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required>
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <input
+    type="text"
+    id="searchBox"
+    placeholder="Search Currency..."
+    class="search-box">
+
+    <!-- AMOUNT -->
+
+    <input
+    type="number"
+    id="amount"
+    placeholder="Enter Amount">
+
+    <!-- CURRENCY -->
+
+    <div class="select-box">
+
+        <!-- FROM -->
+
+        <div>
+
+            <span id="fromFlag">🇺🇸</span>
+
+            <select id="fromCurrency">
+
+                {% for currency in currencies %}
+
+                <option value="{{ currency }}">
+                    {{ currency }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+        </div>
+
+        <!-- SWAP -->
+
+        <button class="swap-btn"
+        onclick="swapCurrencies()">
+
+            ⇄
+
+        </button>
+
+        <!-- TO -->
+
+        <div>
+
+            <span id="toFlag">🇺🇬</span>
+
+            <select id="toCurrency">
+
+                {% for currency in currencies %}
+
+                <option value="{{ currency }}">
+                    {{ currency }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <!-- FAVORITES -->
+
+    <div class="favorites">
+
+        <h3>
+            ⭐ Favorite Pairs
+        </h3>
+
+        <div class="fav-buttons">
+
+            <button onclick="setPair('USD','UGX')">
+                USD → UGX
+            </button>
+
+            <button onclick="setPair('EUR','USD')">
+                EUR → USD
+            </button>
+
+            <button onclick="setPair('GBP','UGX')">
+                GBP → UGX
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- CONVERT -->
+
+    <button class="convert-btn"
+    onclick="convertCurrency()">
+
+        Convert Now
+
+    </button>
+
+    <!-- LOADER -->
+
+    <div class="loader"
+    id="loader"></div>
+
+    <!-- DOWNLOAD -->
+
+    <button class="download-btn"
+    onclick="downloadReceipt()">
+
+        Download Receipt
+
+    </button>
+
+    <!-- RESULT -->
+
+    <div class="result">
+
+        <h2 id="result">
+            Result: --
+        </h2>
+
+        <p id="rateText"></p>
+
+    </div>
+
+    <!-- CHART -->
+
+    <div class="chart-box">
+
+    <iframe
+    src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=FX:EURUSD&interval=D&hidesidetoolbar=1&theme=dark"
+    width="100%"
+    height="450"
+    frameborder="0">
+    </iframe>
+
+</div>
+
+    <!-- STATS -->
+
+    <div class="stats-container">
+
+        <div class="stat-box">
+
+            <h3>
+                💱 Daily Conversions
+            </h3>
+
+            <p>
+                12,540+
+            </p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3>
+                👥 Active Users
+            </h3>
+
+            <p>
+                8,320+
+            </p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3>
+                🌍 Countries
+            </h3>
+
+            <p>
+                150+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- CRYPTO -->
+
+    <div class="crypto-box">
+
+    <h2>Live Crypto Prices</h2>
+
+    <div id="btc">BTC: Loading...</div>
+
+    <div id="eth">ETH: Loading...</div>
+
+    <div id="usdt">USDT: Loading...</div>
+
+</div>
+    <!-- MARKET -->
+<section class="market-section">
+    <h2>Live Forex Market</h2>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <h3>USD → UGX</h3>
+            <p id="usd-ugx">Loading...</p>
+        </div>
+
+        <div class="market-card">
+            <h3>EUR → USD</h3>
+            <p id="eur-usd">Loading...</p>
+        </div>
+
+        <div class="market-card">
+            <h3>GBP → USD</h3>
+            <p id="gbp-usd">Loading...</p>
+        </div>
+
+    </div>
+</section>
+    <div class="market-trend">
+
+        <h2>
+            📈 Market Trends
+        </h2>
+
+        <ul>
+
+            <li>
+                🔥 USD gaining strength today
+            </li>
+
+            <li>
+                📉 Bitcoin market slightly down
+            </li>
+
+            <li>
+                🚀 Ethereum showing recovery
+            </li>
+
+            <li>
+                💹 Forex market highly active
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="market-trend">
+
+    <h2>📈 Forex Market Dashboard</h2>
+
+    <div class="market-card">
+        <h3>USD → UGX</h3>
+        <p id="usd-ugx">Loading...</p>
+    </div>
+
+    <div class="market-card">
+        <h3>EUR → USD</h3>
+        <p id="eur-usd">Loading...</p>
+    </div>
+
+    <div class="market-card">
+        <h3>GBP → USD</h3>
+        <p id="gbp-usd">Loading...</p>
+    </div>
+
+</div>
+<!-- WATCHLIST -->
+
+<div class="watchlist">
+
+    <h3>📊 Market Watchlist</h3>
+
+    <div class="watch-item">
+        USD/UGX <span class="up">▲ 3766.30</span>
+    </div>
+
+    <div class="watch-item">
+        EUR/USD <span class="up">▲ 1.16</span>
+    </div>
+
+    <div class="watch-item">
+        GBP/USD <span class="down">▼ 1.27</span>
+    </div>
+
+    <div class="watch-item">
+        BTC/USD <span class="up">▲ 67582</span>
+    </div>
+
+</div>
+<!-- RECENT ACTIVITY -->
+
+<div class="activity-card">
+
+    <h3>🕒 Recent Activity</h3>
+
+    <div class="activity-item">
+        💱 Converted 100 USD → UGX
+    </div>
+
+    <div class="activity-item">
+        💶 Converted 50 EUR → USD
+    </div>
+
+    <div class="activity-item">
+        🪙 Checked Bitcoin Price
+    </div>
+
+    <div class="activity-item">
+        ⭐ Added USD/UGX Favorite
+    </div>
+
+</div>
+    <!-- NEWS -->
+
+    <div class="news-section">
+
+        <h2>
+            📰 Forex News
+        </h2>
+
+        <div class="news-card">
+            🔥 USD rises against major currencies
+        </div>
+
+        <div class="news-card">
+            📉 Bitcoin volatility increases today
+        </div>
+
+        <div class="news-card">
+            🚀 Uganda Shilling market remains stable
+        </div>
+
+        <div class="news-card">
+            💹 Forex traders expect Fed rate changes
+        </div>
+
+    </div>
+
+    <!-- HISTORY -->
+<div class="tradingview-box">
+
+    <iframe
+    src="https://s.tradingview.com/widgetembed/?symbol=FX:EURUSD&interval=D&theme=dark"
+    width="100%"
+    height="500"
+    frameborder="0">
+    </iframe>
+
+</div>
+    <div class="main-layout">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+
+        <!-- Crypto -->
+        <!-- Market -->
+        <!-- News -->
+
+    </div>
+
+    <!-- CENTER PANEL -->
+    <div class="center-panel">
+
+        <!-- Converter -->
+        <!-- TradingView -->
+        <!-- Results -->
+        <!-- History -->
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+        <!-- Stats -->
+        <!-- Favorite Pairs -->
+        <!-- Contact -->
+        <!-- AI -->
+
+    </div>
+
+</div>
+
+    <!-- CONTACT -->
+
+    <div class="contact-box"
+    id="contact">
+
+        <h3>
+            📧 Contact Support
+        </h3>
+
+        <form action="/contact"
+        method="POST">
+
+            <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required>
+
+            <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required>
+
+            <textarea
+            name="message"
+            placeholder="Your Message"
+            required></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- AI BOX -->
+
+<div class="ai-box">
+<div class="ai-panel">
+
+    <h2>🤖 Rash AI Assistant</h2>
+
+    <textarea
+    id="question"
+    placeholder="Ask AI about forex...">
+    </textarea>
+
+    <button onclick="askAI()">
+        Ask AI
+    </button>
+
+    <div id="ai-response"></div>
+
+</div>
+    <h3>
+        🤖 Rash AI Assistant
+    </h3>
+
+    <p>
+        AI financial assistant coming soon...
+    </p>
+
+    <button class="convert-btn">
+        Ask AI
+    </button>
+
+</div>
+
+<!-- SCROLL BUTTON -->
+
+<button class="scroll-btn"
+onclick="scrollToBottom()">
+
+    ↓
+
 </button>
 
-</form>
+<!-- TOAST -->
 
-<form action="/login" method="POST">
-
-<input
-type="text"
-name="username"
-placeholder="Username"
-required>
-
-<input
-type="password"
-name="password"
-placeholder="Password"
-required>
-
-<button type="submit">
-Login
-<a href="/dashboard">
-
-<button class="convert-btn">
-Open Dashboard
-</button>
-
-</a>
-</button>
-
-</form>
-
-</div>
-Premium Forex & Crypto Converter
-</p>
-
-<input
-type="text"
-id="searchBox"
-placeholder="Search Currency..."
-class="search-box">
-
-<div class="input-group">
-
-<input
-type="number"
-id="amount"
-placeholder="Enter Amount">
-
-</div>
-
-<div class="currency-box">
-
-<div class="select-box">
-
-<span id="fromFlag">🇺🇸</span>
-
-<select id="fromCurrency">
-
-{% for currency in currencies %}
-
-<option value="{{ currency }}">
-{{ currency }}
-</option>
-
-{% endfor %}
-
-</select>
-
-</div>
-
-<button class="swap-btn"
-onclick="swapCurrencies()">
-⇄
-</button>
-
-<div class="select-box">
-
-<span id="toFlag">🇺🇬</span>
-
-<select id="toCurrency">
-
-{% for currency in currencies %}
-
-<option value="{{ currency }}">
-{{ currency }}
-</option>
-
-{% endfor %}
-
-</select>
-
-</div>
-
-</div>
-
-<button class="convert-btn"
-onclick="convertCurrency()">
-
-Convert Now
-
-</button>
-
-<button class="download-btn"
-onclick="downloadReceipt()">
-
-Download Receipt
-
-</button>
-
-<div class="loader"
-id="loader"></div>
-
-<div class="result">
-
-<h2 id="result">
-Result: --
-</h2>
-
-<p id="rateText"></p>
-
-</div>
-
-<div class="chart-box">
-
-<iframe
-src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=FX:EURUSD&interval=D&hidesidetoolbar=1&theme=dark"
-width="100%"
-height="300"
-frameborder="0">
-</iframe>
-
-</div>
-
-<div class="history">
-
-<h3>Recent Conversions</h3>
-
-<ul id="historyList"></ul>
-
-</div>
-<div class="contact-box" id="contact">
-
-<h3>📧 Contact Support</h3>
-
-<form action="/contact" method="POST">
-
-<input
-type="text"
-name="name"
-placeholder="Your Name"
-required>
-
-<input
-type="email"
-name="email"
-placeholder="Your Email"
-required>
-
-<textarea
-name="message"
-placeholder="Your Message"
-required></textarea>
-
-<button type="submit">
-Send Message
-</button>
-
-</form>
-
-</div>
 <div id="toast">
-Conversion Successful
+
+    Conversion Successful
+<div class="ai-section">
+
+    <h2>🤖 Rash AI Assistant</h2>
+
+    <textarea
+        id="ai-question"
+        placeholder="Ask about currencies, forex or crypto...">
+    </textarea>
+
+    <button onclick="askAI()">
+        Ask AI
+    </button>
+
+    <div id="ai-response">
+
+    </div>
+
 </div>
+</div>
+
+<!-- AUDIO -->
 
 <audio id="sound"
 src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3">
 </audio>
 
-</div>
-
-</div>
+<!-- SCRIPT -->
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
+
 </html>
+```

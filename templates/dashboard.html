@@ -1,107 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Rash Currency Converter</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Rash Dashboard</title>
-
-<link rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}">
-
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
+<div class="stats-container">
 
+    <div class="stat-card">
+        <h3>Total Users</h3>
+        <h1>{{ total_users }}</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>Total Conversions</h3>
+        <h1>{{ total_conversions }}</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>Premium Status</h3>
+        <h1>
+            {% if premium %}
+                Premium
+            {% else %}
+                Free
+            {% endif %}
+        </h1>
+    </div>
+
+</div>
 <div class="container">
 
-<div class="card">
-    <div class="stat-box">
-
-<h2>🔥 120</h2>
-
-<p>Daily Conversions</p>
-
-</div>
-
-<div class="stat-box">
-
-<h2>🌍 15</h2>
-
-<p>Countries Active</p>
-
-</div>
-
-<div class="stat-box">
-
-<h2>💰 $2,450</h2>
-
-<p>Revenue Potential</p>
-
-</div>
-
-<h1>👑 Rash Admin Dashboard</h1>
-<div class="profile-card">
-
-<h2>
-👤 {{ current_user.username }}
-</h2>
-
-<p>
-Premium Fintech User
-</p>
-
-</div>
-
-<div class="stats">
-
-<div class="stat-box">
-
-<h2>{{ total_users }}</h2>
-
-<p>Total Users</p>
-
-</div>
-
-</div>
-
-<div class="history">
-
-<h3>Registered Users</h3>
-
-<ul>
-
-{% for user in users %}
-
-<li>
-{{ user.username }}
-</li>
-
-{% endfor %}
-
-</ul>
-
-</div>
-
-<a href="/logout">
-
-<button class="convert-btn">
-    <a href="/premium">
-
-<button class="download-btn">
-💳 Upgrade To Premium
-</button>
-
+    <h1>📊 Dashboard</h1>
+<a href="/forex-dashboard">
+    📈 Forex Dashboard
 </a>
-Logout
-</button>
+    <p>Welcome {{ current_user.username }}</p>
 
+    <div class="stats-container">
+
+        <div class="stat-box">
+            <h3>👥 Users</h3>
+            <p>{{ total_users }}</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>💱 Conversions</h3>
+            <p>{{ total_conversions }}</p>
+        </div>
+
+        <div class="stat-box">
+            <a href="/premium-features">
+    💎 Premium Features
 </a>
+            <h3>💎 Premium</h3>
+            <p>
+                {% if current_user.is_premium %}
+                    Active
+                {% else %}
+                    Free Plan
+                {% endif %}
+            </p>
+        </div>
 
-</div>
+    </div>
+
+    <h2>Recent Activity</h2>
+
+    <table>
+
+        <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Amount</th>
+            <th>Result</th>
+        </tr>
+
+        {% for item in my_history %}
+
+        <tr>
+            <td>{{ item.from_currency }}</td>
+            <td>{{ item.to_currency }}</td>
+            <td>{{ item.amount }}</td>
+            <td>{{ item.result }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/" class="convert-btn">
+        Back Home
+    </a>
+
+    <a href="/logout" class="convert-btn">
+        Logout
+    </a>
 
 </div>
 

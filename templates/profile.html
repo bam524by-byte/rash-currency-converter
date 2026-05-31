@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+</head>
+<body>
+
+<h1>User Profile</h1>
+<a href="/change-password">
+    🔐 Change Password
+</a>
+<p><strong>Username:</strong> {{ user.username }}</p>
+
+{% if user.email %}
+<p><strong>Email:</strong> {{ user.email }}</p>
+{% endif %}
+
+<a href="/dashboard">Dashboard</a>
+<a href="/">Home</a>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>History</title>
+</head>
+
+<body>
+
+    <h1>📜 Conversion History</h1>
+
+    <a href="/">Home</a>
+
+    <hr>
+
+    {% if conversions %}
+
+        <table border="1">
+
+            <tr>
+                <th>User</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Amount</th>
+                <th>Result</th>
+            </tr>
+
+            {% for item in conversions %}
+
+            <tr>
+                <td>{{ item.username }}</td>
+                <td>{{ item.from_currency }}</td>
+                <td>{{ item.to_currency }}</td>
+                <td>{{ item.amount }}</td>
+                <td>{{ item.result }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    {% else %}
+
+        <p>No conversions yet.</p>
+
+    {% endif %}
+
+</body>
+
+</html>

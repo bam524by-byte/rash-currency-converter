@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>History</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="title">
+📜 Conversion History
+</h1>
+
+{% for item in conversions %}
+
+<div class="news-card">
+
+<h3>
+{{ item.amount }}
+{{ item.from_currency }}
+
+→
+
+{{ item.to_currency }}
+</h3>
+
+<p>
+Result:
+{{ item.result }}
+</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

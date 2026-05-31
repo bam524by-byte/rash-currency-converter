@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+</head>
+<body>
+
+<h1>⚙ Account Settings</h1>
+
+<p>Username: {{ user.username }}</p>
+
+{% if user.email %}
+<p>Email: {{ user.email }}</p>
+{% endif %}
+
+<p>
+Premium:
+{% if user.is_premium %}
+✅ Active
+{% else %}
+❌ Free Plan
+{% endif %}
+</p>
+
+<a href="/profile">Profile</a>
+<a href="/dashboard">Dashboard</a>
+
+</body>
+</html>

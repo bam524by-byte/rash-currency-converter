@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forex Dashboard</title>
+</head>
+<body>
+
+<h1>📈 Live Forex Dashboard</h1>
+
+<table border="1">
+
+    <tr>
+        <th>Currency</th>
+        <th>Rate</th>
+    </tr>
+
+    {% for currency, rate in data.items() %}
+
+    <tr>
+        <td>{{ currency }}</td>
+        <td>{{ rate }}</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Home</a>
+
+</body>
+</html>
